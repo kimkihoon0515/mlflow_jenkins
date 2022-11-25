@@ -12,6 +12,9 @@ import argparse
 from importlib import import_module
 
 
+def name(args):
+   model_name = args.model_name
+   return model_name
 
 
 def seed_everything(seed): # Seed 고정
@@ -282,3 +285,4 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   train(args)
+  print(name(args))
