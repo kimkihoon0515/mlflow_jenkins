@@ -11,12 +11,6 @@ import copy
 import argparse
 from importlib import import_module
 
-
-def name(args):
-   model_name = args.model_name
-   return model_name
-
-
 def seed_everything(seed): # Seed 고정
     torch.manual_seed(seed) # torch를 거치는 모든 난수들의 생성순서를 고정한다
     torch.cuda.manual_seed(seed) # cuda를 사용하는 메소드들의 난수시드는 따로 고정해줘야한다 
@@ -285,4 +279,3 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   train(args)
-  print(name(args))
