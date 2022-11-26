@@ -8,5 +8,3 @@ results = client.search_model_versions(filter_string)
 
 for res in results:
     print("run_id={}; version={}; current_stage={}".format(res.run_id,res.version,res.current_stage))
-
-    
