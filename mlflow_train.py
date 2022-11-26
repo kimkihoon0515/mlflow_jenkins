@@ -192,7 +192,7 @@ def train(args): # args를 통해 우리가 직접 넣어주는 hyperparameter �
   if not mlflow.get_experiment_by_name(experiment_name): 
     mlflow.create_experiment(name=experiment_name)
 
-  mlflow.set_tracking_uri('http://127.0.0.1:5000') # 로컬 서버에 실행을 기록하기 위해 함수 호출
+  mlflow.set_tracking_uri('http://127.0.0.1:5001') # 로컬 서버에 실행을 기록하기 위해 함수 호출
 
   mlflow.set_experiment(experiment_name) # 위에서 정의한 실험명을 mlflow에 적용하는 코드.
   experiment = mlflow.get_experiment_by_name(experiment_name) # experiment_id 를 가져오기 위해 get_experiment_by_name 호출한다.
