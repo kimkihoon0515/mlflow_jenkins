@@ -10,6 +10,7 @@ import random
 import copy
 import argparse
 from importlib import import_module
+import os
 
 def seed_everything(seed): # Seed 고정
     torch.manual_seed(seed) # torch를 거치는 모든 난수들의 생성순서를 고정한다
@@ -143,6 +144,11 @@ signature = ModelSignature(inputs=input_schema,outputs=output_schema) # MLflow�
 
 
 def train(args): # args를 통해 우리가 직접 넣어주는 hyperparameter 입력값들을 인자로 받는다.
+
+  os.environ["AWS_ACCESS_KEY_ID"] = "AKIAQHGXFPGFADDI35FY"
+  os.environ["AWS_SECRET_ACCESS_KEY"] = "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"
+  os.environ["MLFLOW_TRACKING_INSECURE_TLS"] = "True"
+
   seed_everything(args.seed) # seed를 고정하는 함수 호출
 
   download_root = 'MNIST_data/' # 데이터 다운로드 경로
@@ -192,7 +198,7 @@ def train(args): # args를 통해 우리가 직접 넣어주는 hyperparameter �
   if not mlflow.get_experiment_by_name(experiment_name): 
     mlflow.create_experiment(name=experiment_name)
 
-  mlflow.set_tracking_uri('http://127.0.0.1:5001') # 로컬 서버에 실행을 기록하기 위해 함수 호출
+  mlflow.set_tracking_uri('http://13.125.54.121:5000') # 로컬 서버에 실행을 기록하기 위해 함수 호출
 
   mlflow.set_experiment(experiment_name) # 위에서 정의한 실험명을 mlflow에 적용하는 코드.
   experiment = mlflow.get_experiment_by_name(experiment_name) # experiment_id 를 가져오기 위해 get_experiment_by_name 호출한다.

@@ -1,5 +1,5 @@
 from mlflow.tracking import MlflowClient
-client = MlflowClient(tracking_uri='http://127.0.0.1:5001')
+client = MlflowClient(tracking_uri='http://13.125.54.121:5000')
 import requests
 import bentoml
 import numpy as np
@@ -11,7 +11,7 @@ def production_check(name):
         'name': name,
         'stages': 'Production'
     }
-    url = "http://localhost:5001/api/2.0/mlflow/registered-models/get-latest-versions"
+    url = "http://13.125.54.121:5000/api/2.0/mlflow/registered-models/get-latest-versions"
 
     response = requests.get(url,params=datas).json()
 
@@ -32,7 +32,7 @@ def get_model_uri(name,version):
         'version': version
     }
 
-    url = "http://localhost:5001/api/2.0/mlflow/model-versions/get-download-uri"
+    url = "http://13.125.54.121/api/2.0/mlflow/model-versions/get-download-uri"
 
     response = requests.get(url,params=datas).json()
 

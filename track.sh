@@ -1,1 +1,2 @@
 mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root $(pwd)/artifacts --port 5001
+# mlflow server --backend-store-uri mysql+pymysql://root:password@13.125.54.121:3306/db --default-artifact-root s3://sojt --host 0.0.0.0

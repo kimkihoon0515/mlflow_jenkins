@@ -1,4 +1,4 @@
-python mlflow_train.py --model_name basic_model2
+python mlflow_train.py 
 # --epochs : int
 # --batch-size : int
 # --optimizer : str ['SGD','Adam','AdamW'] 중 택1
