@@ -36,6 +36,11 @@ def db_insert(name,version):
     s = f"INSERT INTO bento.serving (name,version) VALUES ('{name}',{version});"
     cur.execute(s)
     conn.commit()
+
+def db_update(name,version):
+    s = f"update bento.serving set version = {version} where name = '{name}';"
+    cur.execute(s)
+    conn.commit()
     
 
 
@@ -45,6 +50,9 @@ if not check_serving_version(name):
 
 else:
     if check_latest_version(name) != check_serving_version(name):
+        print(f"최신 Production 버전은 {check_latest_version(name)} 이고 현재 Serving 중인 버전은 {check_serving_version(name)}입니다.")
+        db_update(name,check_latest_version(name))
+        print("")
         print(f"최신 Production 버전은 {check_latest_version(name)} 이고 현재 Serving 중인 버전은 {check_serving_version(name)}입니다.")
 
 
