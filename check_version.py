@@ -18,6 +18,7 @@ def check_latest_version(name):
     for mv in models:
         version = mv.version
 
+    version = int(version)
     return version
 
 
@@ -27,6 +28,7 @@ def check_serving_version(name):
         cur.execute(s)
         data = cur.fetchone()
         version = data[0]
+        version = int(version)
     except:
         return False
     
