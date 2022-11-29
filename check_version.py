@@ -46,20 +46,22 @@ def db_update(name,version):
     
 
 
-if not check_serving_version(name):
-    db_insert(name,check_latest_version(name))
-    print("DB에 버전 모델과 버전 등록 완료")
-
-else:
-    if check_latest_version(name) != check_serving_version(name):
-        print(f"최신 Production 버전은 {check_latest_version(name)} 이고 현재 Serving 중인 버전은 {check_serving_version(name)}입니다.")
-        db_update(name,check_latest_version(name))
-        print("")
-        print(f"최신 Production 버전은 {check_latest_version(name)} 이고 현재 Serving 중인 버전은 {check_serving_version(name)}입니다.")
-
+if name == "__main__":
+    
+    if not check_serving_version(name):
+        db_insert(name,check_latest_version(name))
+        print("DB에 버전 모델과 버전 등록 완료")
 
     else:
-        print(f"현재 Serving 중인 버전은 {check_serving_version(name)} 입니다.")
+        if check_latest_version(name) != check_serving_version(name):
+            print(f"최신 Production 버전은 {check_latest_version(name)} 이고 현재 Serving 중인 버전은 {check_serving_version(name)}입니다.")
+            db_update(name,check_latest_version(name))
+            print("")
+            print(f"최신 Production 버전은 {check_latest_version(name)} 이고 현재 Serving 중인 버전은 {check_serving_version(name)}입니다.")
+
+
+        else:
+            print(f"현재 Serving 중인 버전은 {check_serving_version(name)} 입니다.")
 
 
 
