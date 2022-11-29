@@ -60,7 +60,7 @@ if __name__ == "__main__":
             db_update(name,check_latest_version(name))
             print("")
             subprocess.call("python3 service.py",shell=True)
-            subprocess.call("bentoml serve service:svc --host 0.0.0.0",shell=True)
+            #subprocess.call("bentoml serve service:svc --host 0.0.0.0",shell=True)
             print(f"최신 Production 버전은 {check_latest_version(name)} 이고 현재 Serving 중인 버전은 {check_serving_version(name)}입니다.")
 
 
