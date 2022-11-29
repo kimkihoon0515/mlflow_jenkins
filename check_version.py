@@ -8,8 +8,6 @@ import bentoml
 import numpy as np
 
 
-name = 'basic_model'
-
 
 def check_latest_version(name):
     models = client.get_latest_versions(name,stages=['Production'])
@@ -46,8 +44,11 @@ def db_update(name,version):
     
 
 
-if name == "__main__":
-    
+if __name__ == "__main__":
+
+    global name
+    name = 'basic_model'
+
     if not check_serving_version(name):
         db_insert(name,check_latest_version(name))
         print("DB에 버전 모델과 버전 등록 완료")
