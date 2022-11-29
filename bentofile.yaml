@@ -3,12 +3,14 @@ labels:
   owner: kimkihoon0515
   stage: dev
 include:
-- "service.py"
+- "*.py"
 python:
   packages:
     - mlflow
     - numpy
     - torch
-    - python-dotenv
+    - pymysql
+    - boto3
     
+
     
