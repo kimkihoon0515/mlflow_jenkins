@@ -66,7 +66,6 @@ if __name__ == "__main__":
 
         else:
             print(f"현재 Serving 중인 버전은 {check_serving_version(name)} 입니다.")
-            subprocess.call("python3 hello.py",shell=True)
 
 
 
