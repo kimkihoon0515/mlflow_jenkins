@@ -149,6 +149,8 @@ def train(args): # args를 통해 우리가 직접 넣어주는 hyperparameter �
   os.environ["AWS_SECRET_ACCESS_KEY"] = "eikbTLp3pMmGY5mDpbBn3ojq7yKYO83vQqDSAvwe"
   os.environ["MLFLOW_TRACKING_INSECURE_TLS"] = "True"
 
+  s3_bucket = "https://s3.ap-northeast-2.amazonaws.com/sojt"
+
   seed_everything(args.seed) # seed를 고정하는 함수 호출
 
   download_root = 'MNIST_data/' # 데이터 다운로드 경로
@@ -196,7 +198,7 @@ def train(args): # args를 통해 우리가 직접 넣어주는 hyperparameter �
   experiment_name = args.experiment_name # 실험명, 실험관리를 용이하게 해줍니다. 
 
   if not mlflow.get_experiment_by_name(experiment_name): 
-    mlflow.create_experiment(name=experiment_name)
+    mlflow.create_experiment(name=experiment_name,artifact_location=s3_bucket)
 
   mlflow.set_tracking_uri('http://13.125.54.121:5000') # 로컬 서버에 실행을 기록하기 위해 함수 호출
 

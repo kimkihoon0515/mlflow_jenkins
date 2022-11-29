@@ -6,6 +6,7 @@ conn = pymysql.connect(host="13.125.54.121",port=3306,user="root",password="pass
 cur = conn.cursor()
 import bentoml
 import numpy as np
+import subprocess
 
 
 
@@ -58,11 +59,13 @@ if __name__ == "__main__":
             print(f"최신 Production 버전은 {check_latest_version(name)} 이고 현재 Serving 중인 버전은 {check_serving_version(name)}입니다.")
             db_update(name,check_latest_version(name))
             print("")
+            subprocess.call("python3 hello.py",shell=True)
             print(f"최신 Production 버전은 {check_latest_version(name)} 이고 현재 Serving 중인 버전은 {check_serving_version(name)}입니다.")
 
 
         else:
             print(f"현재 Serving 중인 버전은 {check_serving_version(name)} 입니다.")
+            subprocess.call("python3 hello.py",shell=True)
 
 
 
