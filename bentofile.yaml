@@ -1,0 +1,14 @@
+service: "service:svc"
+labels:
+  owner: kimkihoon0515
+  stage: dev
+include:
+- "service.py"
+python:
+  packages:
+    - mlflow
+    - numpy
+    - torch
+    - python-dotenv
+    
+    

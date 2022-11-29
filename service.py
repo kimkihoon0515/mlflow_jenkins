@@ -2,8 +2,9 @@ import bentoml
 import numpy as np
 from mlflow.tracking import MlflowClient
 import os
-os.environ["AWS_ACCESS_KEY_ID"] = os.getenv("AWS_ACCESS_KEY_ID")
-os.environ["AWS_SECRET_ACCESS_KEY"] = os.getenv("AWS_SECRET_ACCESS_KEY")
+import python
+os.environ["AWS_ACCESS_KEY_ID"] = "AKIAQHGXFPGFADDI35FY"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "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"
 os.environ["MLFLOW_TRACKING_INSECURE_TLS"] = "True"
 
 
