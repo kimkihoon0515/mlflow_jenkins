@@ -11,6 +11,7 @@ import copy
 import argparse
 from importlib import import_module
 import os
+from dotenv import load_dotenv
 
 def seed_everything(seed): # Seed 고정
     torch.manual_seed(seed) # torch를 거치는 모든 난수들의 생성순서를 고정한다
@@ -145,8 +146,8 @@ signature = ModelSignature(inputs=input_schema,outputs=output_schema) # MLflow�
 
 def train(args): # args를 통해 우리가 직접 넣어주는 hyperparameter 입력값들을 인자로 받는다.
 
-  os.environ["AWS_ACCESS_KEY_ID"] = "AKIAQHGXFPGFADDI35FY"
-  os.environ["AWS_SECRET_ACCESS_KEY"] = "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"
+  os.environ["AWS_ACCESS_KEY_ID"] = os.getenv("AWS_ACCESS_KEY_ID")
+  os.environ["AWS_SECRET_ACCESS_KEY"] = os.getenv("AWS_SECRET_ACCESS_KEY")
   os.environ["MLFLOW_TRACKING_INSECURE_TLS"] = "True"
 
   s3_bucket = "https://s3.ap-northeast-2.amazonaws.com/sojt"
