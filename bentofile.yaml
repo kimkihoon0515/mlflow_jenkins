@@ -3,7 +3,8 @@ labels:
   owner: kimkihoon0515
   stage: dev
 include:
-- "*.py"
+- "service.py"
+- "check_version.py"
 python:
   packages:
     - mlflow
@@ -11,6 +12,7 @@ python:
     - torch
     - pymysql
     - boto3
+    - ipython==8.6.0
     
 
     
