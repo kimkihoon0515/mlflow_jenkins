@@ -60,7 +60,8 @@ if __name__ == "__main__":
             db_update(name,check_latest_version(name))
             print("")
             subprocess.call("bentoml build",shell=True)
-            subprocess.call("bentoml containerize mlflow_demo",shell=True)
+            subprocess.call("bentoml containerize mlflow_demo -t kimkihoon0515/mlflow_demo",shell=True)
+            subprocess.call("docker push kimkihoon0515/mlflow_demo",shell=True)
             print(f"최신 Production 버전은 {check_latest_version(name)} 이고 현재 Serving 중인 버전은 {check_serving_version(name)}입니다.")
 
 
