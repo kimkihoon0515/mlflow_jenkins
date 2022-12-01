@@ -11,7 +11,6 @@ python:
     - numpy
     - pymysql
     - boto3
-    - torch
     - ipython==8.6.0
     
 
