@@ -10,7 +10,7 @@ python:
     - mlflow
     - numpy
     - pymysql
-    - torch # aws 프리티어의 한계로 실제로는 torch를 적어야함.
+    #- torch # aws 프리티어의 한계로 실제로는 torch를 적어야함.
     - boto3
     - ipython==8.6.0
     
