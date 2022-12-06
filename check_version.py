@@ -9,6 +9,13 @@ import numpy as np
 import subprocess
 
 
+def check_models():
+    models = client.search_registered_models():
+    model = []
+    for mv in models:
+        model.append(mv.name)
+    
+    return model
 
 def check_latest_version(name):
     models = client.get_latest_versions(name,stages=['Production'])
