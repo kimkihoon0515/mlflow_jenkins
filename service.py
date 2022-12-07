@@ -3,8 +3,8 @@ import numpy as np
 from mlflow.tracking import MlflowClient
 import os
 
-os.environ["AWS_ACCESS_KEY_ID"] = "AKIAQHGXFPGFADDI35FY"
-os.environ["AWS_SECRET_ACCESS_KEY"] = "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"
+os.environ["AWS_ACCESS_KEY_ID"] = ""
+os.environ["AWS_SECRET_ACCESS_KEY"] = ""
 os.environ["MLFLOW_TRACKING_INSECURE_TLS"] = "True"
 
 
